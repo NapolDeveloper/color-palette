@@ -5,19 +5,41 @@ import styled from 'styled-components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle';
 
+import MainPage from './pages/MainPage';
+
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #fff0f0;
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
 `;
+const Content = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: blue; ;
+`;
+
+// 라우팅용 컴포넌트
+const MainRoute: React.FC = () => {
+  return (
+    <Content>
+      <Routes>
+        <Route path='/' element={<MainPage />} />
+      </Routes>
+    </Content>
+  );
+};
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Container>
-        <GlobalStyle />
         <Header />
-        <Routes>{/* <Route path='/' element={<Main />} /> */}</Routes>
+        <GlobalStyle />
+        <Routes>
+          <Route path='/' element={<MainRoute />} />
+        </Routes>
       </Container>
     </BrowserRouter>
   );

@@ -13,16 +13,27 @@ import {
   Tooltip,
   MenuItem
 } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import Colors from '../../styles/Colors';
 
 import MenuIcon from '@mui/icons-material/Menu';
+
+const useStyles = makeStyles({
+  headerContainer: {
+    backgroundColor: Colors.primaryColor,
+    color: Colors.colorBlack
+  }
+});
 
 const pages = ['MyBox', 'Others', 'list3'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header: React.FC = () => {
+  const classes = useStyles();
+
+  // Menu
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -33,13 +44,13 @@ const Header: React.FC = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
   return (
     <AppBar position='static'>
-      <Container maxWidth='xl'>
+      <Container maxWidth='xl' className={classes.headerContainer}>
         <Toolbar disableGutters>
           <Typography variant='h6' noWrap component='div' sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
             COLOR-BOX
