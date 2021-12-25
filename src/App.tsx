@@ -17,6 +17,7 @@ const App: React.FC = () => {
       <Container>
         <GlobalStyle />
         <Header />
+        <Routes>{/* <Route path='/' element={<Main />} /> */}</Routes>
       </Container>
     </BrowserRouter>
   );

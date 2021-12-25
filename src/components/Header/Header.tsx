@@ -16,7 +16,7 @@ import {
 
 import MenuIcon from '@mui/icons-material/Menu';
 
-const pages = ['박스', 'list2', 'list3'];
+const pages = ['MyBox', 'Others', 'list3'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header: React.FC = () => {
