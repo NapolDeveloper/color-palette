@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
+// material ui
 import {
   AppBar,
   Box,
@@ -14,9 +15,9 @@ import {
   MenuItem
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import Colors from '../../styles/Colors';
-
 import MenuIcon from '@mui/icons-material/Menu';
+
+import Colors from '../../styles/Colors';
 
 const useStyles = makeStyles({
   headerContainer: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
 });
 
 const pages = ['MyBox', 'Others', 'list3'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Login'];
 
 const Header: React.FC = () => {
   const classes = useStyles();
