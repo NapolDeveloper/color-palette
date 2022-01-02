@@ -23,6 +23,7 @@ const Content = styled.div`
 `;
 
 // 라우팅용 컴포넌트
+/*
 const MainRoute: React.FC = () => {
   return (
     <Content>
@@ -33,6 +34,7 @@ const MainRoute: React.FC = () => {
     </Content>
   );
 };
+*/
 
 const App: React.FC = () => {
   return (
@@ -41,7 +43,8 @@ const App: React.FC = () => {
         <Header />
         <GlobalStyle />
         <Routes>
-          <Route path='/' element={<MainRoute />} />
+          <Route path='/' element={<MainPage />} />
+          <Route path='/login' element={<LoginPage />} />
         </Routes>
       </Container>
     </BrowserRouter>

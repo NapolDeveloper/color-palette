@@ -27,11 +27,18 @@ const useStyles = makeStyles({
 });
 
 const pages = ['MyBox', 'Others', 'list3'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Login'];
+// const settings = ['Profile', 'Account', 'Dashboard', 'Login'];
+
+const settings = [
+  { text: 'Profile', router: 'profile' },
+  { text: 'Account', router: 'account' },
+  { text: 'Dashboard', router: 'dashboard' },
+  { text: 'Login', router: 'login' }
+];
 
 const Header: React.FC = () => {
   const classes = useStyles();
-
+  const navigate = useNavigate();
   // Menu
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -50,12 +57,24 @@ const Header: React.FC = () => {
   };
 
   // navigate
+  const handleClickMenu = (router: string) => {
+    navigate(`/${router}`);
+    handleCloseUserMenu(); // 메뉴 클릭시 메뉴 닫힘
+  };
 
   return (
     <AppBar position='static'>
       <Container maxWidth='xl' className={classes.headerContainer}>
         <Toolbar disableGutters>
-          <Typography variant='h6' noWrap component='div' sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
+          <Typography
+            onClick={() => {
+              navigate('/');
+            }}
+            variant='h6'
+            noWrap
+            component='div'
+            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+          >
             COLOR-BOX
           </Typography>
 
@@ -130,8 +149,8 @@ const Header: React.FC = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography textAlign='center'>{setting}</Typography>
+                <MenuItem key={setting.text} onClick={() => handleClickMenu(setting.router)}>
+                  <Typography textAlign='center'>{setting.text}</Typography>
                 </MenuItem>
               ))}
             </Menu>
