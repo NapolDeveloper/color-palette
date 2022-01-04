@@ -7,8 +7,9 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: black;
   height: 100%;
+  width: 100%;
 `;
 
 const LoginForm: React.FC = () => {
