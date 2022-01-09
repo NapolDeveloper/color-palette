@@ -8,6 +8,7 @@ import GlobalStyle from './styles/GlobalStyle';
 // Pages
 import MainPage from './pages/MainPage';
 import LoginPage from './pages/LoginPage';
+import MyBoxPage from './pages/MyBoxPage';
 
 const Container = styled.div`
   width: 100%;
@@ -45,6 +46,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path='/' element={<MainPage />} />
           <Route path='/login' element={<LoginPage />} />
+          <Route path='/mybox' element={<MyBoxPage />} />
         </Routes>
       </Container>
     </BrowserRouter>

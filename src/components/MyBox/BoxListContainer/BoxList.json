@@ -1,0 +1,17 @@
+[
+  {
+    "id": 2,
+    "boxId": 3,
+    "title": "box1"
+  },
+  {
+    "id": 3,
+    "boxId": 4,
+    "title": "box2"
+  },
+  {
+    "id": 4,
+    "boxId": 5,
+    "title": "box3"
+  }
+]
