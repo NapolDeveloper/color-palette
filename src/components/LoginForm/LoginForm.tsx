@@ -16,10 +16,10 @@ const LoginForm: React.FC = () => {
   const onSubmit = async (form: { email: string; password: string }) => {
     console.log(form);
     await axios
-      .post('http://localhost:8282/colorPalette/login/loginCheck', form)
+      .post('http://0f66-124-146-57-57.ngrok.io/colorPalette/login/loginCheck', form)
       .then((r) => {
         console.log(r);
-        console.log(`${form} 폼 정상적으로 작동`);
+        console.log('test');
       })
       .catch((res) => {
         console.error('err');

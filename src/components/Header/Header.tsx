@@ -26,7 +26,14 @@ const useStyles = makeStyles({
   }
 });
 
-const pages = ['MyBox', 'Others', 'list3'];
+// const pages = ['MyBox', 'Others', 'list3'];
+const pages = [
+  {
+    text: 'MyBox',
+    router: 'mybox'
+  },
+  { text: 'Others', router: 'others' }
+];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Login'];
 
 const settings = [
@@ -57,6 +64,10 @@ const Header: React.FC = () => {
   };
 
   // navigate
+  const handleClickPage = (router: string) => {
+    navigate(`/${router}`);
+    handleCloseNavMenu();
+  };
   const handleClickMenu = (router: string) => {
     navigate(`/${router}`);
     handleCloseUserMenu(); // 메뉴 클릭시 메뉴 닫힘
@@ -109,8 +120,8 @@ const Header: React.FC = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign='center'>{page}</Typography>
+                <MenuItem key={page.text} onClick={() => handleClickPage(page.router)}>
+                  <Typography textAlign='center'>{page.text}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -120,8 +131,12 @@ const Header: React.FC = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
-                {page}
+              <Button
+                key={page.text}
+                onClick={() => handleClickPage(page.router)}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page.text}
               </Button>
             ))}
           </Box>
