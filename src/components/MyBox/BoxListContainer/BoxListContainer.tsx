@@ -12,14 +12,25 @@ const Container = styled.div`
   // 삭제할 예정
   outline: 2px solid black;
   border-radius: 10px;
-  height: 80%;
+  height: 700px;
   width: 80%;
   padding: 15px;
+  overflow: scroll;
 `;
 
 const BoxListContainer = () => {
   return (
     <Container>
+      <ColorBox />
+      <ColorBox />
+      <ColorBox />
+      <ColorBox />
+      <ColorBox />
+      <ColorBox />
+      <ColorBox />
+      <ColorBox />
+      <ColorBox />
+      <ColorBox />
       <ColorBox />
       <ColorBox />
       <ColorBox />
