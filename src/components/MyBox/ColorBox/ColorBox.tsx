@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import Colors from '../../../styles/Colors';
 
 const Container = styled.div`
-  flex-basis: 23%;
+  flex-basis: 25%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
   /* background-color: blue; */
   height: 200px;

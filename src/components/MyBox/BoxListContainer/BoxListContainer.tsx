@@ -6,8 +6,9 @@ import ColorBox from '../ColorBox/ColorBox';
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   background-color: beige;
   // 삭제할 예정
   outline: 2px solid black;
@@ -21,7 +22,6 @@ const Container = styled.div`
 const BoxListContainer = () => {
   return (
     <Container>
-      <ColorBox />
       <ColorBox />
       <ColorBox />
       <ColorBox />
