@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import TextField from '@mui/material/TextField';
 import Colors from '../../../styles/Colors';
-import { useNavigate } from 'react-router-dom';
 
 // hooks
 import useInput from '../../../hooks/useInput';
@@ -70,22 +69,24 @@ const SignUpButton = styled.div`
 `;
 
 const InputField = styled(TextField)`
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: ${Colors.primaryColor};
   width: 80%;
 `;
 
 // types
 type MyFormProps = {
-  onSubmit: (form: { email: string; password: string }) => void;
+  onSubmit: (form: { email: string; password: string; name: string; confirmPassword: string }) => void;
 };
 
-const LoginInput: React.ElementType = ({ onSubmit }: MyFormProps) => {
+const SignupInput: React.ElementType = ({ onSubmit }: MyFormProps) => {
   const [form, setForm] = useState({
     email: '',
-    password: ''
+    password: '',
+    confirmPassword: '',
+    name: ''
   });
-  const { email, password } = form; // 객체 비구조화 할당
+  const { email, password, confirmPassword, name } = form; // 객체 비구조화 할당
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -100,15 +101,15 @@ const LoginInput: React.ElementType = ({ onSubmit }: MyFormProps) => {
     onSubmit(form);
     setForm({
       email: '',
-      password: ''
+      password: '',
+      confirmPassword: '',
+      name: ''
     }); // 초기화
   };
 
-  const navigate = useNavigate();
-
   return (
     <InputWrap>
-      <LoginTitle>Login</LoginTitle>
+      <LoginTitle>Sign up</LoginTitle>
       <InputForm onSubmit={handleSubmit}>
         <InputField
           required
@@ -131,17 +132,32 @@ const LoginInput: React.ElementType = ({ onSubmit }: MyFormProps) => {
           placeholder='Type your password'
           type='password'
         />
-        <LoginButton type='submit'>LOGIN</LoginButton>
-        <SignUpButton
-          onClick={() => {
-            navigate(`/signup`);
-          }}
-        >
-          SIGN UP
-        </SignUpButton>
+        <InputField
+          required
+          id='standard-required'
+          label='Confirm Password'
+          variant='standard'
+          name='confirmPassword'
+          value={confirmPassword}
+          onChange={onChange}
+          placeholder='Confirm password'
+          type='password'
+        />
+        <InputField
+          required
+          id='standard-required'
+          label='Name'
+          variant='standard'
+          name='name'
+          value={name}
+          onChange={onChange}
+          placeholder='Type your name'
+          type='string'
+        />
+        <LoginButton type='submit'>SIGN UP</LoginButton>
       </InputForm>
     </InputWrap>
   );
 };
 
-export default LoginInput;
+export default SignupInput;

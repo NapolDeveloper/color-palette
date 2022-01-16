@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import LoginInput from './LoginInput/LoginInput';
+import SignupInput from './SignupInput/SignupInput';
 import axios from 'axios';
 import Server from '../../data/Server';
 
@@ -13,11 +13,11 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const LoginForm: React.FC = () => {
-  const onSubmit = async (form: { email: string; password: string }) => {
+const SignupForm: React.FC = () => {
+  const onSubmit = async (form: { email: string; password: string; name: string }) => {
     console.log(form);
     await axios
-      .post(`${Server.serverUrl}/colorPalette/login/loginCheck`, form)
+      .post(`${Server.serverUrl}/colorPalette/login/`, form)
       .then((r) => {
         console.log(r);
         console.log('test');
@@ -29,9 +29,9 @@ const LoginForm: React.FC = () => {
 
   return (
     <Container>
-      <LoginInput onSubmit={onSubmit} />
+      <SignupInput onSubmit={onSubmit} />
     </Container>
   );
 };
 
-export default LoginForm;
+export default SignupForm;
