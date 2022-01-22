@@ -14,12 +14,13 @@ const Container = styled.div`
   outline: 2px solid black;
   border-radius: 10px;
   height: 700px;
-  width: 80%;
+  width: 1000px;
   padding: 15px;
   overflow: scroll;
 `;
 
 const BoxListContainer = () => {
+  // const userName = useSelector(selectUserName);
   return (
     <Container>
       <ColorBox />

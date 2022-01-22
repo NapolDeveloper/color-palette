@@ -19,6 +19,26 @@ const ColorContainer = styled.div`
   height: 80%;
   border-radius: 10px;
   background-color: #01ebd3;
+  position: relative;
+  &:hover {
+    &:after {
+      height: 100%;
+    }
+  }
+  &:after {
+    position: absolute;
+    z-index: 1;
+    content: '';
+    width: 100%;
+    height: 0;
+    opacity: 0.4;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    background-color: ${Colors.colorBlack};
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
 `;
 const BoxTitle = styled.span`
   color: ${Colors.colorBlack};
