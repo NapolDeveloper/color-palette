@@ -31,7 +31,7 @@ const LoginForm: React.FC = () => {
         if (r.data === 'loginSuccess') {
           const userName = r.data.name;
           dispatch(setLoginTrue({ name: `${userName}`, isLogged: true }));
-        } else if (r.data === 'ifFail') {
+        } else if (r.data === 'idFail') {
           console.log('아이디가 일치하지 않습니다.');
         } else if (r.data === 'pwFail') {
           console.log('비밀번호가 일치하지 않습니다.');

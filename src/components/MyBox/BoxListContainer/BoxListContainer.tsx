@@ -4,19 +4,13 @@ import styled from 'styled-components';
 import ColorBox from '../ColorBox/ColorBox';
 
 const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: start;
-  background-color: beige;
-  // 삭제할 예정
-  outline: 2px solid black;
-  border-radius: 10px;
+  display: grid;
+  width: 900px;
   height: 700px;
-  width: 1000px;
-  padding: 15px;
   overflow: scroll;
+  outline: 2px solid black;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(20%, auto));
 `;
 
 const BoxListContainer = () => {

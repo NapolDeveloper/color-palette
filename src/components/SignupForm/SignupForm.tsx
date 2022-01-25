@@ -19,11 +19,17 @@ const SignupForm: React.FC = () => {
     await axios
       .post(`${Server.serverUrl}/colorPalette/login/`, form)
       .then((r) => {
-        console.log(r);
-        console.log('test');
+        // 가입 성공
+        if (r.data === 'joinSuccess') {
+          console.log('회원가입에 성공했습니다');
+        }
+        // 아이디 중복 가입 실패
+        else if (r.data === 'joinFail') {
+          console.log('회원가입에 실패했습니다 - 아이디중복');
+        }
       })
       .catch((res) => {
-        console.error('err');
+        console.error('에러 발생');
       });
   };
 
